@@ -1,1 +1,3 @@
-/target
+target
+.idea
+rust_study.iml
