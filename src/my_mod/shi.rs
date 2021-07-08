@@ -83,3 +83,46 @@ pub fn trait_fanxing() {
     println!("The largest char is {}", result);
 }
 
+
+//生命周期
+//现在函数签名表明对于某些生命周期 'a，函数会获取两个参数，他们都是与生命周期 'a 存在的一样长的字符串 slice。函数会返回一个同样也与生命周期 'a 存在的一样长的字符串 slice。
+//它的实际含义是 longest 函数返回的引用的生命周期与传入该函数的引用的生命周期的较小者一致。
+pub fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
+    if x.len() > y.len() {
+        x
+    } else {
+        y
+    }
+
+}
+
+//当从函数返回一个引用，返回值的生命周期参数需要与一个参数的生命周期参数相匹配。如果返回的引用 没有 指向任何一个参数，
+// 那么唯一的可能就是它指向一个函数内部创建的值，它将会是一个悬垂引用
+// fn longest<'a>(x: &str, y: &str) -> &'a str {
+//     let result = String::from("really long string");
+//     result.as_str()
+// }
+
+
+pub fn longest_test_success() {
+    let string1 = String::from("long string is long");
+
+    {
+        let string2 = String::from("xyz");
+        let result = longest(string1.as_str(), string2.as_str());
+        println!("The longest string is {}", result);
+    }
+}
+
+
+pub fn longest_test_error(){
+    // let string1 = String::from("long string is long");
+    // let result;
+    // {
+    //     let string2 = String::from("xyz");
+    //     result = longest(string1.as_str(), string2.as_str());
+    // }
+    // println!("The longest string is {}", result);
+
+
+}

@@ -39,6 +39,13 @@ pub fn optionTest(){
 }
 
 
+pub fn option_panic_Test(){
+
+        panic!("123456");
+}
+
+
+
 fn plus_one(x:Option<i32>) -> Option<i32>{
     match x {
         None => None,

@@ -12,9 +12,9 @@ fn test_sturct_demo(){
 }
 
 #[derive(Debug)]
-struct Rectangle {
-    width:u32,
-    height:u32,
+pub struct Rectangle {
+   pub width:u32,
+   pub height:u32,
 }
 
 impl Rectangle{
@@ -28,5 +28,9 @@ impl Rectangle{
 
     fn area(&self) -> u32{
         self.height* self.width
+    }
+
+    pub fn can_hold(&self, other: &Rectangle) -> bool {
+        self.width > other.width && self.height > other.height
     }
 }

@@ -1,4 +1,5 @@
 mod my_mod;
+mod tests;
 pub use crate::my_mod::ip::{value_in_ip_add_kind,IpAddKind,IpAddr};
 pub use crate::my_mod::suoyouquan::test_suoyouquan;
 use crate::my_mod::shi::build;
@@ -40,8 +41,9 @@ fn main(){
     //trait
     //my_mod::shi::summary_tweet_test();
     //trait+泛型
-    my_mod::shi::trait_fanxing();
-
+    //my_mod::shi::trait_fanxing();
+    //泛型生命周期
+    my_mod::shi::longest_test_success();
 
 
 
